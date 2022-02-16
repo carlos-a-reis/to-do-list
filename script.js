@@ -9,14 +9,20 @@ let listaTarefas = document.getElementById('lista-tarefas');
 
 
 function novaTarefa(evento){
-    console.log(evento.target.value);
     tarefa = evento.target.value;
 }
 
 function criaTarefa(evento){
-    console.log(evento.target);
     let tarefaItem = document.createElement('li');
     tarefaItem.innerText = tarefa;
+    tarefaItem.addEventListener('click', alterarCor);
     listaTarefas.appendChild(tarefaItem);
     inputTexto.value = '';
+}
+
+//muda a cor da tarefa selecionada(adicionar o evento na criação do item)
+let tarefaSelecionada = document.getElementsByTagName('li');
+
+function alterarCor(evento){
+    evento.target.style.backgroundColor = 'grey';
 }

@@ -40,11 +40,6 @@ function itemCompleto(evento){
     if(evento.target.className === 'completed'){
         evento.target.className = '';
     }else {
-        for(let index = 0; index < tarefaSelecionada.length; index += 1){
-            if(tarefaSelecionada[index].className === 'completed'){
-                tarefaSelecionada[index].className = '';
-            }
-        }
         evento.target.className = 'completed';
     }
 }
@@ -60,4 +55,18 @@ function apagaTarefas(evento){
         document.getElementById('lista-tarefas').removeChild(tarefaDeletada[index]);
     }
     tarefaDeletada = [];
+}
+
+//remove tarefas finalizadas
+let botaoFinalizado = document.getElementById('remover-finalizados');
+botaoFinalizado.addEventListener('click', apagaFinalizadas);
+
+function apagaFinalizadas(evento){
+    console.log(tarefaDeletada);
+    for(let index = tarefaDeletada.length -1; index >= 0; index -= 1){
+        if(tarefaDeletada[index].className === 'completed'){
+            document.getElementById('lista-tarefas').removeChild(tarefaDeletada[index]);
+            tarefaDeletada.splice(index, 1);
+        }
+    }
 }

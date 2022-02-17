@@ -16,19 +16,34 @@ function criaTarefa(evento){
     let tarefaItem = document.createElement('li');
     tarefaItem.innerText = tarefa;
     tarefaItem.addEventListener('click', alterarCor);
+    tarefaItem.addEventListener('dblclick', itemCompleto);
     listaTarefas.appendChild(tarefaItem);
     inputTexto.value = '';
 }
 
 //muda a cor da tarefa selecionada(adicionar o evento na criação do item)
 let tarefaSelecionada = document.getElementsByTagName('li');
-let marcador;
 
 function alterarCor(evento){
     for(let index = 0; index < tarefaSelecionada.length; index += 1){
         if(tarefaSelecionada[index].style.backgroundColor === 'grey'){
-            tarefaSelecionada[index].style.backgroundColor = 'white'
+            tarefaSelecionada[index].style.backgroundColor = 'white';
         }
     }
     evento.target.style.backgroundColor = 'grey';
+}
+
+//item completo
+function itemCompleto(evento){
+    console.log(evento.target);
+    if(evento.target.className === 'completed'){
+        evento.target.className = '';
+    }else {
+        for(let index = 0; index < tarefaSelecionada.length; index += 1){
+            if(tarefaSelecionada[index].className === 'completed'){
+                tarefaSelecionada[index].className = '';
+            }
+        }
+        evento.target.className = 'completed';
+    }
 }

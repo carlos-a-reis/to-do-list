@@ -22,7 +22,13 @@ function criaTarefa(evento){
 
 //muda a cor da tarefa selecionada(adicionar o evento na criação do item)
 let tarefaSelecionada = document.getElementsByTagName('li');
+let marcador;
 
 function alterarCor(evento){
+    for(let index = 0; index < tarefaSelecionada.length; index += 1){
+        if(tarefaSelecionada[index].style.backgroundColor === 'grey'){
+            tarefaSelecionada[index].style.backgroundColor = 'white'
+        }
+    }
     evento.target.style.backgroundColor = 'grey';
 }

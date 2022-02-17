@@ -17,6 +17,7 @@ function criaTarefa(evento){
     tarefaItem.innerText = tarefa;
     tarefaItem.addEventListener('click', alterarCor);
     tarefaItem.addEventListener('dblclick', itemCompleto);
+    tarefaDeletada.push(tarefaItem);
     listaTarefas.appendChild(tarefaItem);
     inputTexto.value = '';
 }
@@ -46,4 +47,17 @@ function itemCompleto(evento){
         }
         evento.target.className = 'completed';
     }
+}
+
+//apagar tarefas
+let botaoApagar = document.getElementById('apaga-tudo');
+botaoApagar.addEventListener('click', apagaTarefas);
+let tarefaDeletada = [];
+
+function apagaTarefas(evento){
+    console.log(tarefaDeletada);
+    for(let index = 0; index < tarefaDeletada.length; index += 1){
+        document.getElementById('lista-tarefas').removeChild(tarefaDeletada[index]);
+    }
+    tarefaDeletada = [];
 }

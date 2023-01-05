@@ -14,25 +14,12 @@ function createTask() {
   if (newTask !== '') {
     const taskItem = document.createElement('li');
     taskItem.innerText = newTask;
-    taskItem.addEventListener('click', changeColor);
-    taskItem.addEventListener('dblclick', completeTask);
+    taskItem.addEventListener('click', completeTask);
 
     taskList.appendChild(taskItem);
   }
 
   document.getElementById('task-text').value = ''
-}
-
-//change the color of the selected task
-const tasks = document.getElementsByTagName('li');
-
-function changeColor(event) {
-  for (let i = 0; i < tasks.length; i += 1) {
-    if (tasks[i].style.backgroundColor === 'grey') {
-      tasks[i].style.backgroundColor = '';
-    }
-  }
-  event.target.style.backgroundColor = 'grey';
 }
 
 //complete task
@@ -57,6 +44,7 @@ function deleteTasks() {
 //delete finalized tasks
 const finalizedButton = document.getElementById('delete-finalized');
 finalizedButton.addEventListener('click', deleteFinalized);
+const tasks = document.getElementsByTagName('li');
 
 function deleteFinalized() {
   for (let i = 0; i < tasks.length; i += 1) {

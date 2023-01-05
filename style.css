@@ -1,3 +1,5 @@
-.completed {
-    text-decoration: line-through solid black;
-}
+@import 'tailwindcss/base';
+
+@import 'tailwindcss/components';
+
+@import 'tailwindcss/utilities';

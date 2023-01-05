@@ -14,7 +14,7 @@ function createTask() {
   if (newTask !== '') {
     const taskItem = document.createElement('li');
     taskItem.innerText = newTask;
-    taskItem.addEventListener('click', alterarCor);
+    taskItem.addEventListener('click', changeColor);
     taskItem.addEventListener('dblclick', itemCompleto);
 
     taskList.appendChild(taskItem);
@@ -23,13 +23,13 @@ function createTask() {
   document.getElementById('task-text').value = ''
 }
 
-//muda a cor da tarefa selecionada(adicionar o evento na criação do item)
-let tarefaSelecionada = document.getElementsByTagName('li');
+//change the color of the selected task
+const selectedTask = document.getElementsByTagName('li');
 
-function alterarCor(evento) {
-  for (let index = 0; index < tarefaSelecionada.length; index += 1) {
-    if (tarefaSelecionada[index].style.backgroundColor === 'grey') {
-      tarefaSelecionada[index].style.backgroundColor = 'white';
+function changeColor(evento) {
+  for (let i = 0; i < selectedTask.length; i += 1) {
+    if (selectedTask[i].style.backgroundColor === 'grey') {
+      selectedTask[i].style.backgroundColor = 'white';
     }
   }
   evento.target.style.backgroundColor = 'grey';

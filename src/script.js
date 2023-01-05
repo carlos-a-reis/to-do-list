@@ -44,17 +44,15 @@ function itemCompleto(event) {
   }
 }
 
-//apagar tarefas
-let botaoApagar = document.getElementById('delete-tasks');
-botaoApagar.addEventListener('click', apagaTarefas);
-let tarefaDeletada = [];
+//delete tasks
+const deleteButton = document.getElementById('delete-tasks');
+deleteButton.addEventListener('click', deleteTasks);
 
-function apagaTarefas(evento) {
-  console.log(tarefaDeletada);
-  for (let index = 0; index < tarefaDeletada.length; index += 1) {
-    document.getElementById('task-list').removeChild(tarefaDeletada[index]);
+function deleteTasks() {
+  tasks = document.getElementById('task-list')
+  while (tasks.firstChild) {
+    tasks.removeChild(tasks.firstChild);
   }
-  tarefaDeletada = [];
 }
 
 //remove tarefas finalizadas

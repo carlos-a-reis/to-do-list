@@ -26,22 +26,21 @@ function createTask() {
 //change the color of the selected task
 const selectedTask = document.getElementsByTagName('li');
 
-function changeColor(evento) {
+function changeColor(event) {
   for (let i = 0; i < selectedTask.length; i += 1) {
     if (selectedTask[i].style.backgroundColor === 'grey') {
-      selectedTask[i].style.backgroundColor = 'white';
+      selectedTask[i].style.backgroundColor = '';
     }
   }
-  evento.target.style.backgroundColor = 'grey';
+  event.target.style.backgroundColor = 'grey';
 }
 
-//item completo
-function itemCompleto(evento) {
-  console.log(evento.target);
-  if (evento.target.className === 'completed') {
-    evento.target.className = '';
+//complete task
+function itemCompleto(event) {
+  if (event.target.classList.value.includes('completed')) {
+    event.target.classList.remove('completed');
   } else {
-    evento.target.className = 'completed';
+    event.target.classList.add('completed');
   }
 }
 

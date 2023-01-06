@@ -4,12 +4,20 @@ const tasks = document.getElementsByTagName('li');
 //create list items
 function createListItem(text, completed) {
   const listItem = document.createElement('li');
-  listItem.innerText = text;
-  listItem.addEventListener('click', completeTask);
+  const itemText = document.createElement('span');
+  const deleteIcon = document.createElement('span');
+
+  itemText.innerText = text;
+  deleteIcon.innerText = 'x';
+
+  itemText.addEventListener('click', completeTask);
 
   if(completed) {
-    listItem.classList.add('completed');
+    itemText.classList.add('completed');
   }
+
+  listItem.appendChild(itemText);
+  listItem.appendChild(deleteIcon);
 
   return listItem;
 }
@@ -28,8 +36,8 @@ if (localStorage.getItem('to-do-list')) {
 function setLocalStorage() {
   const tasksArray = [];
   for (let i = 0; i < tasks.length; i += 1) {
-    const completed = tasks[i].className.includes('completed');
-    const taskText = tasks[i].innerText;
+    const completed = tasks[i].firstChild.className.includes('completed');
+    const taskText = tasks[i].firstChild.innerText;
     tasksArray.push({ taskText, completed });
   }
 
@@ -88,7 +96,7 @@ finalizedButton.addEventListener('click', deleteFinalized);
 
 function deleteFinalized() {
   for (let i = tasks.length - 1; i >= 0; i -= 1) {
-    if (tasks[i].className.includes('completed')) {
+    if (tasks[i].firstChild.className.includes('completed')) {
       taskList.removeChild(tasks[i]);
     }
   }

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -21,6 +22,14 @@
     <button id="delete-finalized">Apagar Finalisadas</button>
     
     <ol id="task-list"></ol>
+
+    <div id="edit-form" hidden>
+        <form>
+            <button id="cancel-edit" type="button">X</button>
+            <input id="edit-input" type="text">
+            <button id="confirm-edit" type="submit">Editar</button>
+        </form>
+    </div>
 
     <script src="script.js"></script>
 </body>

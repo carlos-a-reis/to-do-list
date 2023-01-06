@@ -5,12 +5,15 @@ const tasks = document.getElementsByTagName('li');
 function createListItem(text, completed) {
   const listItem = document.createElement('li');
   const itemText = document.createElement('span');
+  const editIcon = document.createElement('span');
   const deleteIcon = document.createElement('span');
 
   itemText.innerText = text;
+  editIcon.innerText = 'E';
   deleteIcon.innerText = 'x';
 
   itemText.addEventListener('click', completeTask);
+  editIcon.addEventListener('click', editTask);
   deleteIcon.addEventListener('click', deleteSelf);
 
   if(completed) {
@@ -18,6 +21,7 @@ function createListItem(text, completed) {
   }
 
   listItem.appendChild(itemText);
+  listItem.appendChild(editIcon);
   listItem.appendChild(deleteIcon);
 
   return listItem;
@@ -109,6 +113,41 @@ function deleteFinalized() {
 function deleteSelf(event) {
   event.target.parentNode.remove();
 
+  setLocalStorage();
+}
+
+//edit the task
+const editForm = document.getElementById('edit-form');
+const cancelEditButton = document.getElementById('cancel-edit');
+const editInput = document.getElementById('edit-input');
+const comfirmEditButton = document.getElementById('confirm-edit');
+
+let editText = '';
+
+cancelEditButton.addEventListener('click', cancelEdit);
+comfirmEditButton.addEventListener('click', comfirmEdit);
+
+function editTask(event) {
+  editText = event.target.parentNode.firstChild;
+  editInput.value = editText.innerText;
+  editForm.hidden = false;
+}
+
+function cancelEdit() {
+  editForm.hidden = true;
+}
+
+function comfirmEdit(event) {
+  event.preventDefault();
+
+  if(editInput.value !== '') {
+    editText.innerText = editInput.value;
+  } else {
+    editText.parentNode.remove();
+  }
+
+  editForm.hidden = true;
+  
   setLocalStorage();
 }
 

@@ -17,7 +17,7 @@ function createListItem(text, completed) {
   deleteIcon.addEventListener('click', deleteSelf);
 
   if(completed) {
-    itemText.classList.add('completed');
+    itemText.classList.add('line-through');
   }
 
   listItem.appendChild(itemText);
@@ -41,7 +41,7 @@ if (localStorage.getItem('to-do-list')) {
 function setLocalStorage() {
   const tasksArray = [];
   for (let i = 0; i < tasks.length; i += 1) {
-    const completed = tasks[i].firstChild.className.includes('completed');
+    const completed = tasks[i].firstChild.className.includes('line-through');
     const taskText = tasks[i].firstChild.innerText;
     tasksArray.push({ taskText, completed });
   }
@@ -58,7 +58,8 @@ function getTask() {
   return task;
 }
 
-function createTask() {
+function createTask(event) {
+  event.preventDefault();
   const newTask = getTask();
 
   if (newTask !== '') {
@@ -74,10 +75,10 @@ function createTask() {
 
 //complete task
 function completeTask(event) {
-  if (event.target.classList.value.includes('completed')) {
-    event.target.classList.remove('completed');
+  if (event.target.classList.value.includes('line-through')) {
+    event.target.classList.remove('line-through');
   } else {
-    event.target.classList.add('completed');
+    event.target.classList.add('line-through');
   }
 
   setLocalStorage();
@@ -101,7 +102,7 @@ finalizedButton.addEventListener('click', deleteFinalized);
 
 function deleteFinalized() {
   for (let i = tasks.length - 1; i >= 0; i -= 1) {
-    if (tasks[i].firstChild.className.includes('completed')) {
+    if (tasks[i].firstChild.className.includes('line-through')) {
       taskList.removeChild(tasks[i]);
     }
   }

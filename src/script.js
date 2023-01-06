@@ -53,3 +53,8 @@ function deleteFinalized() {
     }
   }
 }
+
+//order the tasks
+new Sortable(taskList, {
+  animation: 350,
+})

@@ -11,6 +11,7 @@ function createListItem(text, completed) {
   deleteIcon.innerText = 'x';
 
   itemText.addEventListener('click', completeTask);
+  deleteIcon.addEventListener('click', deleteSelf);
 
   if(completed) {
     itemText.classList.add('completed');
@@ -100,6 +101,13 @@ function deleteFinalized() {
       taskList.removeChild(tasks[i]);
     }
   }
+
+  setLocalStorage();
+}
+
+//delete the task
+function deleteSelf(event) {
+  event.target.parentNode.remove();
 
   setLocalStorage();
 }

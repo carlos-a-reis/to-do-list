@@ -1,7 +1,37 @@
+const taskList = document.getElementById('task-list');
+const tasks = document.getElementsByTagName('li');
+
+//get items from localStorage
+if (localStorage.getItem('to-do-list')){
+  const localList = JSON.parse(localStorage.getItem('to-do-list'));
+  for (let i = 0; i < localList.length; i += 1) {
+    const localItem = document.createElement('li');
+    localItem.innerText = localList[i].taskText;
+    localItem.addEventListener('click', completeTask);
+
+    if(localList[i].completed) {
+      localItem.classList.add('completed');
+    }
+    
+    taskList.appendChild(localItem);
+  }
+}
+
+//set localStorage items
+function setLocalStorage() {
+  const tasksArray = [];
+  for (let i = 0; i < tasks.length; i += 1) {
+    const completed = tasks[i].className.includes('completed');
+    const taskText = tasks[i].innerText;
+    tasksArray.push({ taskText, completed });
+  }
+
+  localStorage.setItem('to-do-list', JSON.stringify(tasksArray))
+}
+
 //add new task
 const button = document.getElementById('create-task');
 button.addEventListener('click', createTask);
-const taskList = document.getElementById('task-list');
 
 function getTask() {
   const task = document.getElementById('task-text').value;
@@ -18,8 +48,10 @@ function createTask() {
 
     taskList.appendChild(taskItem);
   }
+  
+  setLocalStorage();
 
-  document.getElementById('task-text').value = ''
+  document.getElementById('task-text').value = '';
 }
 
 //complete task
@@ -29,6 +61,8 @@ function completeTask(event) {
   } else {
     event.target.classList.add('completed');
   }
+
+  setLocalStorage();
 }
 
 //delete tasks
@@ -39,12 +73,13 @@ function deleteTasks() {
   while (taskList.firstChild) {
     taskList.removeChild(taskList.firstChild);
   }
+
+  setLocalStorage();
 }
 
 //delete finalized tasks
 const finalizedButton = document.getElementById('delete-finalized');
 finalizedButton.addEventListener('click', deleteFinalized);
-const tasks = document.getElementsByTagName('li');
 
 function deleteFinalized() {
   for (let i = 0; i < tasks.length; i += 1) {
@@ -52,6 +87,8 @@ function deleteFinalized() {
       taskList.removeChild(tasks[i]);
     }
   }
+
+  setLocalStorage();
 }
 
 //order the tasks

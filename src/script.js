@@ -87,7 +87,7 @@ const finalizedButton = document.getElementById('delete-finalized');
 finalizedButton.addEventListener('click', deleteFinalized);
 
 function deleteFinalized() {
-  for (let i = 0; i < tasks.length; i += 1) {
+  for (let i = tasks.length - 1; i >= 0; i -= 1) {
     if (tasks[i].className.includes('completed')) {
       taskList.removeChild(tasks[i]);
     }

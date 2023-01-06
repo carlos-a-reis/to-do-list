@@ -1,17 +1,24 @@
 const taskList = document.getElementById('task-list');
 const tasks = document.getElementsByTagName('li');
 
+//create list items
+function createListItem(text, completed) {
+  const listItem = document.createElement('li');
+  listItem.innerText = text;
+  listItem.addEventListener('click', completeTask);
+
+  if(completed) {
+    listItem.classList.add('completed');
+  }
+
+  return listItem;
+}
+
 //get items from localStorage
-if (localStorage.getItem('to-do-list')){
+if (localStorage.getItem('to-do-list')) {
   const localList = JSON.parse(localStorage.getItem('to-do-list'));
   for (let i = 0; i < localList.length; i += 1) {
-    const localItem = document.createElement('li');
-    localItem.innerText = localList[i].taskText;
-    localItem.addEventListener('click', completeTask);
-
-    if(localList[i].completed) {
-      localItem.classList.add('completed');
-    }
+    const localItem = createListItem(localList[i].taskText, localList[i].completed);
     
     taskList.appendChild(localItem);
   }
@@ -42,9 +49,7 @@ function createTask() {
   const newTask = getTask();
 
   if (newTask !== '') {
-    const taskItem = document.createElement('li');
-    taskItem.innerText = newTask;
-    taskItem.addEventListener('click', completeTask);
+    const taskItem = createListItem(newTask, false);
 
     taskList.appendChild(taskItem);
   }

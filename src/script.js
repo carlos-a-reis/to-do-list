@@ -138,11 +138,13 @@ comfirmEditButton.addEventListener('click', comfirmEdit);
 function editTask(event) {
   editText = event.target.parentNode.parentNode.parentNode.firstChild;
   editInput.value = editText.innerText;
-  editForm.hidden = false;
+  editForm.classList.remove('hidden');
+  editForm.classList.add('flex');
 }
 
 function cancelEdit() {
-  editForm.hidden = true;
+  editForm.classList.remove('flex');
+  editForm.classList.add('hidden');
 }
 
 function comfirmEdit(event) {
@@ -154,7 +156,8 @@ function comfirmEdit(event) {
     editText.parentNode.remove();
   }
 
-  editForm.hidden = true;
+  editForm.classList.remove('flex');
+  editForm.classList.add('hidden');
   
   setLocalStorage();
 }

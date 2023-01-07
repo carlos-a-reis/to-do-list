@@ -2,7 +2,24 @@
 module.exports = {
   content: ['**/*.{html, js}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'green-pastel': '#CEEDC7',
+        'green-pastel-drak': '#86C8BC',
+      },
+      fontSize: {
+        '2.5rem': '2.5rem',
+      },
+      spacing: {
+        '328px': '328px',
+      },
+      minHeight: {
+        '48px': '48px',
+      },
+      fontFamily: {
+        flower: ['Indie Flower', 'cursive'],
+      },
+    },
   },
   plugins: [],
 };

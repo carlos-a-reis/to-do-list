@@ -5,24 +5,36 @@ const tasks = document.getElementsByTagName('li');
 function createListItem(text, completed) {
   const listItem = document.createElement('li');
   const itemText = document.createElement('span');
+  const itemOptions = document.createElement('div');
   const editIcon = document.createElement('span');
   const deleteIcon = document.createElement('span');
+  const handleIcon = document.createElement('span');
 
+  listItem.classList.add('task-item');
   itemText.innerText = text;
-  editIcon.innerText = 'E';
-  deleteIcon.innerText = 'x';
+  itemText.classList.add('task');
+  editIcon.innerHTML = '<i class="fa-solid fa-pen"></i>';
+  editIcon.classList.add('edit');
+  deleteIcon.innerHTML = '<i class="fa-solid fa-trash"></i>';
+  deleteIcon.classList.add('delete');
+  handleIcon.innerHTML = '<i class="fa-solid fa-grip-lines"></i>';
+  handleIcon.classList.add('handle');
+  handleIcon.setAttribute('id', 'handle');
 
   itemText.addEventListener('click', completeTask);
   editIcon.addEventListener('click', editTask);
   deleteIcon.addEventListener('click', deleteSelf);
 
   if(completed) {
-    itemText.classList.add('completed');
+    itemText.classList.add('line-through');
   }
 
+  itemOptions.appendChild(editIcon);
+  itemOptions.appendChild(deleteIcon);
+  itemOptions.appendChild(handleIcon);
+
   listItem.appendChild(itemText);
-  listItem.appendChild(editIcon);
-  listItem.appendChild(deleteIcon);
+  listItem.appendChild(itemOptions);
 
   return listItem;
 }
@@ -41,7 +53,7 @@ if (localStorage.getItem('to-do-list')) {
 function setLocalStorage() {
   const tasksArray = [];
   for (let i = 0; i < tasks.length; i += 1) {
-    const completed = tasks[i].firstChild.className.includes('completed');
+    const completed = tasks[i].firstChild.className.includes('line-through');
     const taskText = tasks[i].firstChild.innerText;
     tasksArray.push({ taskText, completed });
   }
@@ -58,7 +70,8 @@ function getTask() {
   return task;
 }
 
-function createTask() {
+function createTask(event) {
+  event.preventDefault();
   const newTask = getTask();
 
   if (newTask !== '') {
@@ -74,10 +87,10 @@ function createTask() {
 
 //complete task
 function completeTask(event) {
-  if (event.target.classList.value.includes('completed')) {
-    event.target.classList.remove('completed');
+  if (event.target.classList.value.includes('line-through')) {
+    event.target.classList.remove('line-through');
   } else {
-    event.target.classList.add('completed');
+    event.target.classList.add('line-through');
   }
 
   setLocalStorage();
@@ -101,7 +114,7 @@ finalizedButton.addEventListener('click', deleteFinalized);
 
 function deleteFinalized() {
   for (let i = tasks.length - 1; i >= 0; i -= 1) {
-    if (tasks[i].firstChild.className.includes('completed')) {
+    if (tasks[i].firstChild.className.includes('line-through')) {
       taskList.removeChild(tasks[i]);
     }
   }
@@ -111,7 +124,7 @@ function deleteFinalized() {
 
 //delete the task
 function deleteSelf(event) {
-  event.target.parentNode.remove();
+  event.target.parentNode.parentNode.parentNode.remove();
 
   setLocalStorage();
 }
@@ -128,13 +141,15 @@ cancelEditButton.addEventListener('click', cancelEdit);
 comfirmEditButton.addEventListener('click', comfirmEdit);
 
 function editTask(event) {
-  editText = event.target.parentNode.firstChild;
+  editText = event.target.parentNode.parentNode.parentNode.firstChild;
   editInput.value = editText.innerText;
-  editForm.hidden = false;
+  editForm.classList.remove('hidden');
+  editForm.classList.add('flex');
 }
 
 function cancelEdit() {
-  editForm.hidden = true;
+  editForm.classList.remove('flex');
+  editForm.classList.add('hidden');
 }
 
 function comfirmEdit(event) {
@@ -146,12 +161,17 @@ function comfirmEdit(event) {
     editText.parentNode.remove();
   }
 
-  editForm.hidden = true;
+  editForm.classList.remove('flex');
+  editForm.classList.add('hidden');
   
   setLocalStorage();
 }
 
 //order the tasks
 new Sortable(taskList, {
-  animation: 350,
-})
+  animation: 150,
+  onEnd: function() {
+    setLocalStorage();
+  },
+  handle: '.handle',
+});

@@ -8,6 +8,7 @@ function createListItem(text, completed) {
   const itemOptions = document.createElement('div');
   const editIcon = document.createElement('span');
   const deleteIcon = document.createElement('span');
+  const handleIcon = document.createElement('span');
 
   listItem.classList.add('task-item');
   itemText.innerText = text;
@@ -16,6 +17,9 @@ function createListItem(text, completed) {
   editIcon.classList.add('edit');
   deleteIcon.innerHTML = '<i class="fa-solid fa-trash"></i>';
   deleteIcon.classList.add('delete');
+  handleIcon.innerHTML = '<i class="fa-solid fa-grip-lines"></i>';
+  handleIcon.classList.add('handle');
+  handleIcon.setAttribute('id', 'handle');
 
   itemText.addEventListener('click', completeTask);
   editIcon.addEventListener('click', editTask);
@@ -27,6 +31,7 @@ function createListItem(text, completed) {
 
   itemOptions.appendChild(editIcon);
   itemOptions.appendChild(deleteIcon);
+  itemOptions.appendChild(handleIcon);
 
   listItem.appendChild(itemText);
   listItem.appendChild(itemOptions);
@@ -168,4 +173,5 @@ new Sortable(taskList, {
   onEnd: function() {
     setLocalStorage();
   },
-})
+  handle: '.handle',
+});

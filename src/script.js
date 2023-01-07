@@ -159,4 +159,7 @@ function comfirmEdit(event) {
 //order the tasks
 new Sortable(taskList, {
   animation: 150,
+  onEnd: function() {
+    setLocalStorage();
+  },
 })

@@ -3,3 +3,23 @@
 @import 'tailwindcss/components';
 
 @import 'tailwindcss/utilities';
+
+.delete-button {
+  @apply flex items-center justify-center bg-white w-28 h-10 rounded-lg;
+};
+
+.task-item {
+  @apply grid grid-cols-10 w-328px h-12 mt-4 py-2 px-5 items-center rounded-lg bg-white;
+};
+
+.task {
+  @apply col-span-8;
+};
+
+.edit {
+  @apply text-right;
+};
+
+.delete {
+  @apply text-right;
+};

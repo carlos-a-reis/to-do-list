@@ -709,7 +709,8 @@ video {
 .task-item {
   margin-top: 1rem;
   display: flex;
-  height: 3rem;
+  max-height: 6rem;
+  min-height: 48px;
   width: 328px;
   align-items: center;
   justify-content: space-between;
@@ -721,8 +722,8 @@ video {
 }
 
 .task {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
+  width: 230px;
+  overflow-wrap: break-word;
 }
 
 .edit {

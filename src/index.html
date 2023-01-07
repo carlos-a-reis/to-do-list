@@ -18,7 +18,7 @@
     <main class="flex flex-col items-center">
       <!--Add task form-->
       <form class="flex justify-center h-10">
-        <input id="task-text" type="text" placeholder="add a new task" class="text-center rounded-l-md outline-none w-72">
+        <input id="task-text" type="text" maxlength="70" placeholder="add a new task" class="text-center rounded-l-md outline-none w-72">
         <button id="create-task" type="submit" class="bg-green-pastel-drak rounded-r-md w-10">
           <i class="fa-sharp fa-solid fa-plus text-white text-lg"></i>
         </button>
@@ -40,7 +40,7 @@
       <div id="edit-form" hidden>
           <form>
               <button id="cancel-edit" type="button">X</button>
-              <input id="edit-input" type="text">
+              <input id="edit-input" maxlength="70" type="text">
               <button id="confirm-edit" type="submit">Editar</button>
           </form>
       </div>

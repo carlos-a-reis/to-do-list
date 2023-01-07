@@ -9,17 +9,17 @@
 };
 
 .task-item {
-  @apply grid grid-cols-10 w-328px h-12 mt-4 py-2 px-5 items-center rounded-lg bg-white;
+  @apply flex justify-between w-328px h-12 mt-4 px-5 items-center rounded-lg bg-white;
 };
 
 .task {
-  @apply col-span-8;
+  @apply text-black;
 };
 
 .edit {
-  @apply text-right;
+  @apply text-right text-xs;
 };
 
 .delete {
-  @apply text-right;
+  @apply text-right ml-6 text-xs;
 };

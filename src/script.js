@@ -8,9 +8,13 @@ function createListItem(text, completed) {
   const editIcon = document.createElement('span');
   const deleteIcon = document.createElement('span');
 
+  listItem.classList.add('task-item');
   itemText.innerText = text;
+  itemText.classList.add('task');
   editIcon.innerText = 'E';
+  editIcon.classList.add('edit');
   deleteIcon.innerText = 'x';
+  deleteIcon.classList.add('delete');
 
   itemText.addEventListener('click', completeTask);
   editIcon.addEventListener('click', editTask);
@@ -154,5 +158,5 @@ function comfirmEdit(event) {
 
 //order the tasks
 new Sortable(taskList, {
-  animation: 350,
+  animation: 150,
 })

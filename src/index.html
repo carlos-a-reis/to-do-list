@@ -9,28 +9,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class=" bg-gray-400">
+<body class="bg-green-pastel">
     <!--Header-->
-    <header class="flex flex-col items-center my-10">
-        <h1 class="text-4xl font-bold">To Do List</h1>
+    <header class="flex flex-col items-center my-7">
+        <h1 class="text-2.5rem text-white font-bold">To Do List</h1>
     </header>
     <!--Main-->
     <main class="flex flex-col items-center">
       <!--Add task form-->
-      <form class="flex justify-center h-9">
+      <form class="flex justify-center h-10">
         <input id="task-text" type="text" placeholder="add a new task" class="text-center rounded-l-md outline-none w-72">
-        <button id="create-task" type="submit" class="bg-black rounded-r-md w-10">
+        <button id="create-task" type="submit" class="bg-green-pastel-drak rounded-r-md w-10">
           <i class="fa-sharp fa-solid fa-plus text-white text-lg"></i>
         </button>
       </form>
       <!--Task list-->
-      <ul id="task-list"></ul>
+      <ul id="task-list" class="flex flex-col mt-8"></ul>
       <!--Delete buttons-->
-      <div class="flex justify-evenly absolute bottom-0 w-full h-20 bg-black text-white">
-        <button id="delete-tasks">delete tasks</button>
-        <button id="delete-finalized">delete finalized</button>
+      <div class="flex justify-around items-center absolute bottom-0 w-full h-20 bg-green-pastel-drak">
+        <button id="delete-tasks" class="delete-button">
+          <i class="fa-solid fa-trash"></i>
+          <span class="ml-2">all</span>
+        </button>
+        <button id="delete-finalized" class="delete-button">
+          <i class="fa-solid fa-trash"></i>
+          <span class="ml-2">checked</span>
+        </button>
       </div>  
-
+      <!--Edit form-->
       <div id="edit-form" hidden>
           <form>
               <button id="cancel-edit" type="button">X</button>

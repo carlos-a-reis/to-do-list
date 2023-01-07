@@ -567,8 +567,12 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.absolute {
-  position: absolute;
+.fixed {
+  position: fixed;
+}
+
+.top-auto {
+  top: auto;
 }
 
 .bottom-0 {
@@ -580,12 +584,45 @@ video {
   margin-bottom: 1.75rem;
 }
 
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .mt-8 {
   margin-top: 2rem;
 }
 
 .ml-2 {
   margin-left: 0.5rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-20 {
+  margin-bottom: 5rem;
+}
+
+.mb-28 {
+  margin-bottom: 7rem;
+}
+
+.mb-40 {
+  margin-bottom: 10rem;
+}
+
+.mb-24 {
+  margin-bottom: 6rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
 }
 
 .block {

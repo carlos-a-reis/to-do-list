@@ -5,15 +5,16 @@ const tasks = document.getElementsByTagName('li');
 function createListItem(text, completed) {
   const listItem = document.createElement('li');
   const itemText = document.createElement('span');
+  const itemOptions = document.createElement('div');
   const editIcon = document.createElement('span');
   const deleteIcon = document.createElement('span');
 
   listItem.classList.add('task-item');
   itemText.innerText = text;
   itemText.classList.add('task');
-  editIcon.innerText = 'E';
+  editIcon.innerHTML = '<i class="fa-solid fa-pen"></i>';
   editIcon.classList.add('edit');
-  deleteIcon.innerText = 'x';
+  deleteIcon.innerHTML = '<i class="fa-solid fa-trash"></i>';
   deleteIcon.classList.add('delete');
 
   itemText.addEventListener('click', completeTask);
@@ -24,9 +25,11 @@ function createListItem(text, completed) {
     itemText.classList.add('line-through');
   }
 
+  itemOptions.appendChild(editIcon);
+  itemOptions.appendChild(deleteIcon);
+
   listItem.appendChild(itemText);
-  listItem.appendChild(editIcon);
-  listItem.appendChild(deleteIcon);
+  listItem.appendChild(itemOptions);
 
   return listItem;
 }
@@ -116,7 +119,7 @@ function deleteFinalized() {
 
 //delete the task
 function deleteSelf(event) {
-  event.target.parentNode.remove();
+  event.target.parentNode.parentNode.parentNode.remove();
 
   setLocalStorage();
 }
@@ -133,7 +136,7 @@ cancelEditButton.addEventListener('click', cancelEdit);
 comfirmEditButton.addEventListener('click', comfirmEdit);
 
 function editTask(event) {
-  editText = event.target.parentNode.firstChild;
+  editText = event.target.parentNode.parentNode.parentNode.firstChild;
   editInput.value = editText.innerText;
   editForm.hidden = false;
 }

@@ -591,16 +591,12 @@ video {
   right: 0px;
 }
 
-.mt-2 {
-  margin-top: 0.5rem;
+.mt-4 {
+  margin-top: 1rem;
 }
 
 .mb-6 {
   margin-bottom: 1.5rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
 }
 
 .mb-24 {
@@ -763,8 +759,18 @@ video {
   text-align: right;
 }
 
-.text-2\.5rem {
-  font-size: 2.5rem;
+.font-flower {
+  font-family: Indie Flower, cursive;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .text-lg {
@@ -775,11 +781,6 @@ video {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
 }
 
 .font-bold {
@@ -834,6 +835,8 @@ video {
 .task {
   width: 12rem;
   overflow-wrap: break-word;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .edit {

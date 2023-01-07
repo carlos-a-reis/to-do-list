@@ -16,6 +16,9 @@ module.exports = {
       minHeight: {
         '48px': '48px',
       },
+      fontFamily: {
+        flower: ['Indie Flower', 'cursive'],
+      },
     },
   },
   plugins: [],

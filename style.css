@@ -13,7 +13,7 @@
 };
 
 .task {
-  @apply w-48 break-words;
+  @apply w-48 break-words text-xl;
 };
 
 .edit {

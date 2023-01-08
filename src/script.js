@@ -187,6 +187,7 @@ new Sortable(taskList, {
     setLocalStorage();
   },
   handle: '.handle',
+  forceFallback: true,
 });
 
 //change display theme

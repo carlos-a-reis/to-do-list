@@ -1,4 +1,5 @@
 const html = document.getElementsByTagName('html')[0];
+const darkModeButton = document.getElementById('dark-mode');
 const taskList = document.getElementById('task-list');
 const tasks = document.getElementsByTagName('li');
 
@@ -44,6 +45,7 @@ function createListItem(text, completed) {
 if(localStorage.getItem('to-do-list-theme')) {
   if(localStorage.getItem('to-do-list-theme') === 'dark') {
     html.classList.add('dark');
+    darkModeButton.children[0].className = 'fa-solid fa-sun';
   }
 }
 
@@ -185,11 +187,10 @@ new Sortable(taskList, {
     setLocalStorage();
   },
   handle: '.handle',
+  forceFallback: true,
 });
 
 //change display theme
-const darkModeButton = document.getElementById('dark-mode');
-
 darkModeButton.addEventListener('click', changeTheme);
 
 function changeTheme() {

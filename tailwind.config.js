@@ -5,10 +5,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'green-pastel': '#CEEDC7',
-        'green-pastel-drak': '#86C8BC',
-        'dark-blue': '#0A2647',
-        'light-blue': '#144272',
+        'dark-purple': '#371B58',
+        'dark-violet': '#4C3575',
+        'light-violet': '#5B4B8A',
+        'light-purple': '#7858A6',
       },
       fontSize: {
         '2.5rem': '2.5rem',

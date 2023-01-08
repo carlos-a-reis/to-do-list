@@ -4,8 +4,8 @@
 
 @import 'tailwindcss/utilities';
 
-.delete-button {
-  @apply flex items-center justify-center bg-white w-28 h-10 rounded-lg;
+.bottom-buttons {
+  @apply flex items-center justify-center bg-light-purple dark:bg-light-violet text-white w-28 h-10 rounded-lg;
 };
 
 .task-item {

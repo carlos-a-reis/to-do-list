@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
-<body class="bg-green-pastel font-flower">
+<body class="bg-light-purple dark:bg-dark-purple font-flower">
     <!--Header-->
     <header class="flex flex-col items-center mt-4 mb-6">
         <h1 class="text-5xl text-white font-bold">To Do List</h1>
@@ -20,27 +20,31 @@
       <!--Add task form-->
       <form class="flex justify-center h-10">
         <input id="task-text" type="text" maxlength="70" placeholder="add a new task" class="text-center text-xl rounded-l-md outline-none w-72">
-        <button id="create-task" type="submit" class="bg-green-pastel-drak rounded-r-md w-10">
+        <button id="create-task" type="submit" class="bg-light-violet dark:bg-dark-violet rounded-r-md w-10">
           <i class="fa-sharp fa-solid fa-plus text-white text-lg"></i>
         </button>
       </form>
       <!--Task list-->
       <ul id="task-list" class="flex flex-col mt-4 mb-24"></ul>
-      <!--Delete buttons-->
-      <div class="flex justify-around items-center fixed top-auto bottom-0 w-full h-20 bg-green-pastel-drak text-lg">
-        <button id="delete-tasks" class="delete-button">
+      <!--Bottom buttons-->
+      <div class="flex justify-around items-center fixed top-auto bottom-0 w-full h-16 bg-light-violet dark:bg-dark-violet text-lg">
+        <button id="delete-tasks" class="bottom-buttons">
           <i class="fa-solid fa-trash"></i>
           <span class="ml-2">all</span>
         </button>
-        <button id="delete-finalized" class="delete-button">
+        <button id="delete-finalized" class="bottom-buttons">
           <i class="fa-solid fa-trash"></i>
           <span class="ml-2">checked</span>
+        </button>
+        <button id="dark-mode" class="bottom-buttons">
+          <i class="fa-solid fa-moon"></i>
+          <span class="ml-2">mode</span>
         </button>
       </div>  
       <!--Edit form-->
       <div id="edit-form" class="hidden justify-center items-center fixed top-0 bottom-0 left-0 right-0 bg-black bg-opacity-75">
           <form class="flex flex-col justify-between bg-white w-328px h-36 pb-4 rounded-md">
-            <button id="cancel-edit" type="button" class="text-red-500 text-4xl text-right -mt-3 -mr-3">
+            <button id="cancel-edit" type="button" class="text-red-500 text-4xl text-right -mt-2 -mr-2">
               <i class="fa-solid fa-circle-xmark"></i>
             </button>
             <input id="edit-input" maxlength="70" type="text" class="self-center h-8 border-2 border-gray-400 w-70 rounded-md text-center outline-none">

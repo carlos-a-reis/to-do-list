@@ -1,3 +1,4 @@
+const html = document.getElementsByTagName('html')[0];
 const taskList = document.getElementById('task-list');
 const tasks = document.getElementsByTagName('li');
 
@@ -40,6 +41,12 @@ function createListItem(text, completed) {
 }
 
 //get items from localStorage
+if(localStorage.getItem('to-do-list-theme')) {
+  if(localStorage.getItem('to-do-list-theme') === 'dark') {
+    html.classList.add('dark');
+  }
+}
+
 if (localStorage.getItem('to-do-list')) {
   const localList = JSON.parse(localStorage.getItem('to-do-list'));
   for (let i = 0; i < localList.length; i += 1) {
@@ -50,6 +57,10 @@ if (localStorage.getItem('to-do-list')) {
 }
 
 //set localStorage items
+function saveDisplayTheme(theme) {
+  localStorage.setItem('to-do-list-theme', theme);
+}
+
 function setLocalStorage() {
   const tasksArray = [];
   for (let i = 0; i < tasks.length; i += 1) {
@@ -175,3 +186,20 @@ new Sortable(taskList, {
   },
   handle: '.handle',
 });
+
+//change display theme
+const darkModeButton = document.getElementById('dark-mode');
+
+darkModeButton.addEventListener('click', changeTheme);
+
+function changeTheme() {
+  if(html.className.includes('dark')) {
+    html.classList.remove('dark');
+    darkModeButton.children[0].className = 'fa-solid fa-moon';
+    saveDisplayTheme('ligth');
+  } else {
+    html.classList.add('dark');
+    darkModeButton.children[0].className = 'fa-solid fa-sun';
+    saveDisplayTheme('dark');
+  }
+}

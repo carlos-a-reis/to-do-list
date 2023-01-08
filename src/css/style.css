@@ -615,6 +615,14 @@ video {
   margin-right: -0.75rem;
 }
 
+.-mt-2 {
+  margin-top: -0.5rem;
+}
+
+.-mr-2 {
+  margin-right: -0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -669,6 +677,10 @@ video {
 
 .w-32 {
   width: 8rem;
+}
+
+.w-1 {
+  width: 0.25rem;
 }
 
 .flex-col {
@@ -781,6 +793,11 @@ video {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .font-bold {

@@ -639,8 +639,8 @@ video {
   height: 2.5rem;
 }
 
-.h-20 {
-  height: 5rem;
+.h-16 {
+  height: 4rem;
 }
 
 .h-36 {
@@ -806,7 +806,7 @@ video {
   outline-offset: 2px;
 }
 
-.delete-button {
+.bottom-buttons {
   display: flex;
   height: 2.5rem;
   width: 7rem;
@@ -855,4 +855,14 @@ video {
 .handle {
   margin-left: 1.5rem;
   text-align: right;
+}
+
+.dark .dark\:bg-dark-blue {
+  --tw-bg-opacity: 1;
+  background-color: rgb(10 38 71 / var(--tw-bg-opacity));
+}
+
+.dark .dark\:bg-light-blue {
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 66 114 / var(--tw-bg-opacity));
 }

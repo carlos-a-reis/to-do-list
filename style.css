@@ -5,25 +5,25 @@
 @import 'tailwindcss/utilities';
 
 .bottom-buttons {
-  @apply flex items-center justify-center bg-light-purple dark:bg-light-violet text-white w-28 h-10 rounded-lg;
+  @apply flex items-center justify-center bg-light-purple dark:bg-light-violet text-white w-28 h-10 rounded-lg md:mx-1.5;
 };
 
 .task-item {
-  @apply flex justify-between items-center w-328px min-h-48px max-h-24 mt-4 px-5 rounded-lg bg-white;
+  @apply flex justify-between items-center w-328px md:w-2/5 min-h-48px md:min-h-72px max-h-52 mt-4 px-5 lg:px-6 xl:px-10 py-3 rounded-lg bg-white;
 };
 
 .task {
-  @apply w-48 break-words text-xl;
+  @apply w-48 md:w-full md:max-w-2/3 break-words text-xl md:text-2xl;
 };
 
 .edit {
-  @apply text-right text-xs;
+  @apply text-right text-xs tablet:text-lg;
 };
 
 .delete {
-  @apply text-right ml-6 text-xs;
+  @apply text-right ml-6 lg:ml-8 text-xs tablet:text-lg;
 };
 
 .handle {
-  @apply text-right ml-6;
+  @apply text-right ml-6 lg:ml-8 tablet:text-lg;
 };

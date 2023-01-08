@@ -18,9 +18,17 @@ module.exports = {
       },
       minHeight: {
         '48px': '48px',
+        '72px': '72px',
+      },
+      maxWidth: {
+        '2/3': '66.666667%',
       },
       fontFamily: {
         flower: ['Indie Flower', 'cursive'],
+      },
+      screens: {
+        md: '770px',
+        tablet: '870px',
       },
     },
   },

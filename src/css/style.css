@@ -897,6 +897,7 @@ video {
 
 .task {
   width: 12rem;
+  cursor: pointer;
   overflow-wrap: break-word;
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -912,6 +913,7 @@ video {
 }
 
 .edit {
+  cursor: pointer;
   text-align: right;
   font-size: 0.75rem;
   line-height: 1rem;
@@ -926,6 +928,7 @@ video {
 
 .delete {
   margin-left: 1.5rem;
+  cursor: pointer;
   text-align: right;
   font-size: 0.75rem;
   line-height: 1rem;
@@ -946,6 +949,7 @@ video {
 
 .handle {
   margin-left: 1.5rem;
+  cursor: pointer;
   text-align: right;
 }
 

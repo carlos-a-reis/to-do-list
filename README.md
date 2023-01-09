@@ -1,13 +1,19 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# To Do List
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+## Contexto
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+Este projeto consiste em uma lista de tarefas onde o usuário pode adicionar novas tarefas, marcar as que já foram concluídas, editar tarefas criadas, assim como deleta-las, remover as já feitas e mudar suas posições.
+
+A aplicação tem display responsivo que é compatível com dispositivos mobile, opção de mudar o modo de exibição entre "dark mode" e "light mode" e também deixa alterações, adições e deleções salvas para caso o usuário atualize a página ou queira fecha-la e voltar em outro momento.
+
+Para a criação do projeto foi utilizado HTML, CSS e o framwork TailwindCSS para a construção da estrutura e estilização da página, o JavaScript para a criação de toda a lógica, a library SortableJS para a função de posicionamento dos itens da lista de tarefas e a library Font Awesome para os ícones usados na aplicação.
+
+## Tecnologias usadas
+
+> HTML, CSS, TailwindCSS, JavaScript, SortableJS e Font Awesome
+
+## Instalando Dependências do Projeto
+
+```bash
+npm install
+```
